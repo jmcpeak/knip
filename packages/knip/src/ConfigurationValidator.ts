@@ -61,8 +61,8 @@ const rootConfigurationSchema = z.object({
 });
 
 const reportConfigSchema = z.object({
-  include: z.array(z.string()).optional(),
-  exclude: z.array(z.string()).optional(),
+  include: z.array(issueTypeSchema).optional(),
+  exclude: z.array(issueTypeSchema).optional(),
 });
 
 export const pluginSchema = z.union([
@@ -98,6 +98,7 @@ const pluginsSchema = z.object({
   linthtml: pluginSchema,
   markdownlint: pluginSchema,
   mocha: pluginSchema,
+  msw: pluginSchema,
   netlify: pluginSchema,
   next: pluginSchema,
   'node-test-runner': pluginSchema,
